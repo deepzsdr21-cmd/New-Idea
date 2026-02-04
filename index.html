@@ -36,15 +36,8 @@
       display: block;
     }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 14px;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 14px;
-    }
+    h1 { font-size: 2rem; margin-bottom: 14px; }
+    h2 { font-size: 1.5rem; margin-bottom: 14px; }
 
     p {
       font-size: 1.08rem;
@@ -65,9 +58,7 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .btn:active {
-      transform: scale(0.97);
-    }
+    .btn:active { transform: scale(0.97); }
 
     .primary {
       background: #fff;
@@ -105,12 +96,17 @@
       width: 8px;
       height: 8px;
       top: -10px;
-      background: white;
       animation: fall linear forwards;
     }
 
     @keyframes fall {
       to { transform: translateY(110vh); }
+    }
+
+    .music {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      margin-top: 12px;
     }
   </style>
 </head>
@@ -119,14 +115,20 @@
 
   <div class="hearts">💖 💕 💗 💓 💞 💘</div>
 
+  <!-- Audio (replace song.mp3 with your file) -->
+  <audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
   <!-- Screen 1 -->
   <div class="screen active" id="s1">
-    <h1>Hey you 💕</h1>
+    <h1>Hey <span id="herName">you</span> 💕</h1>
     <p>
       I made this little thing…<br>
       because some feelings deserve more than just words.
     </p>
-    <button class="btn primary" onclick="go(2)">Okay… 💗</button>
+    <button class="btn primary" onclick="playMusic(); go(2)">Okay… 💗</button>
+    <div class="music">(tap to start the music 🎶)</div>
   </div>
 
   <!-- Screen 2 -->
@@ -141,22 +143,21 @@
 
   <!-- Screen 3 -->
   <div class="screen" id="s3">
-    <h2>A little question 💌</h2>
+    <h2>A little truth 💌</h2>
     <p>
-      If life gets loud, messy, or uncertain…<br>
-      would you still hold my hand?
+      I smile more when I talk to you.<br>
+      Even our silly moments — like <strong>that one thing only we laugh at</strong>.
     </p>
-    <button class="btn primary" onclick="go(4)">I would 💖</button>
-    <button class="btn secondary" onclick="go(4)">Tell me more 🫶</button>
+    <button class="btn primary" onclick="go(4)">I know what you mean 💖</button>
   </div>
 
   <!-- Screen 4 -->
   <div class="screen" id="s4">
-    <h2>One last thing… ✨</h2>
+    <h2>From my heart ✨</h2>
     <p>
       I don’t promise perfection.<br>
       Just honesty, care,<br>
-      and choosing you — every day.
+      and choosing you — even on hard days.
     </p>
     <button class="btn primary" onclick="go(5)">Okay… 🥺</button>
   </div>
@@ -188,6 +189,18 @@
         c.style.animationDuration = Math.random() * 1.5 + 2 + "s";
         document.body.appendChild(c);
       }
+    }
+
+    function playMusic() {
+      const music = document.getElementById("bgMusic");
+      music.play().catch(() => {});
+    }
+
+    // Get name from URL
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+    if (name) {
+      document.getElementById("herName").innerText = name;
     }
   </script>
 
