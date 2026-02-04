@@ -23,6 +23,18 @@
       overflow: hidden;
     }
 
+    /* HEARTS BACKGROUND */
+    .hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.25;
+      font-size: 22px;
+      animation: float 10s linear infinite;
+      z-index: 0; /* 👈 important */
+    }
+
+    /* CONTENT */
     .screen {
       display: none;
       width: 100%;
@@ -30,6 +42,8 @@
       padding: 26px;
       text-align: center;
       animation: fadeIn 0.5s ease;
+      z-index: 2; /* 👈 above hearts */
+      position: relative;
     }
 
     .screen.active {
@@ -60,20 +74,21 @@
       cursor: pointer;
       background: rgba(255,255,255,0.25);
       color: #fff;
-      transition: transform 0.2s ease;
+      z-index: 3; /* 👈 clickable layer */
+      position: relative;
     }
 
     .btn:active {
       transform: scale(0.97);
     }
 
-    .hearts {
+    .confetti {
       position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.25;
-      font-size: 22px;
-      animation: float 10s linear infinite;
+      width: 8px;
+      height: 8px;
+      top: -10px;
+      animation: fall linear forwards;
+      z-index: 5;
     }
 
     @keyframes float {
@@ -84,14 +99,6 @@
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    .confetti {
-      position: fixed;
-      width: 8px;
-      height: 8px;
-      top: -10px;
-      animation: fall linear forwards;
     }
 
     @keyframes fall {
@@ -108,36 +115,4 @@
   <div class="screen active" id="s1">
     <h1>Hey You 💕</h1>
     <h2>
-      Listen to me, you're my love 💕<br>
-      Jano tumi?
-    </h2>
-    <button class="btn" data-next="2">Jani ❤️</button>
-  </div>
-
-  <!-- Q2 -->
-  <div class="screen" id="s2">
-    <h1>Shotti kotha bolle</h1>
-    <h2>
-      Jinis ta age onno rokom baniyechilam,<br>
-      but then I thought I can do better 🌚
-    </h2>
-    <button class="btn" data-next="3">Yes, I know I know 😒</button>
-  </div>
-
-  <!-- Q3 -->
-  <div class="screen" id="s3">
-    <h1>Byapar ta holo</h1>
-    <h2>
-      I am more fun than most of the guys 😌<br><br>
-      No one can beat my ________
-    </h2>
-
-    <button class="btn" data-restart="true">Sarcasm</button>
-    <button class="btn" data-restart="true">Bakchodi</button>
-    <button class="btn" data-next="4">Bhalobasha</button>
-    <button class="btn" data-restart="true">Prem</button>
-  </div>
-
-  <!-- Q4 -->
-  <div class="screen" id="s4">
-    <h1>
+      Listen to me,
