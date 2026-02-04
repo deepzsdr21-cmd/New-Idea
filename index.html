@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Hey You 💕</title>
+  <title>For You 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 
   <style>
@@ -38,12 +38,14 @@
 
     h1 {
       font-size: 2rem;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
-    p {
-      font-size: 1.08rem;
+    h2 {
+      font-size: 1.05rem;
+      font-weight: 400;
       line-height: 1.6;
+      opacity: 0.95;
       margin-bottom: 26px;
     }
 
@@ -56,22 +58,13 @@
       border: none;
       margin: 10px 0;
       cursor: pointer;
+      background: rgba(255,255,255,0.25);
+      color: #fff;
       transition: transform 0.2s ease;
     }
 
     .btn:active {
       transform: scale(0.97);
-    }
-
-    .primary {
-      background: #fff;
-      color: #ff5f7e;
-      font-weight: 700;
-    }
-
-    .secondary {
-      background: rgba(255,255,255,0.25);
-      color: #fff;
     }
 
     .hearts {
@@ -92,6 +85,18 @@
       from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    .confetti {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      top: -10px;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to { transform: translateY(110vh); }
+    }
   </style>
 </head>
 
@@ -99,66 +104,58 @@
 
   <div class="hearts">💖 💕 💗 💓 💞 💘</div>
 
-  <!-- Screen 1 -->
+  <!-- Q1 -->
   <div class="screen active" id="s1">
     <h1>Hey You 💕</h1>
-    <p>
+    <h2>
       Listen to me, you're my love 💕<br>
       Jano tumi?
-    </p>
-    <button class="btn primary" onclick="go(2)">Jani ❤️</button>
+    </h2>
+    <button class="btn" onclick="go(2)">Jani ❤️</button>
   </div>
 
-  <!-- Screen 2 -->
+  <!-- Q2 -->
   <div class="screen" id="s2">
-    <p>
-      Shotti kotha bolle jinis ta age onno rokom baniyechilam,<br>
+    <h1>Shotti kotha bolle</h1>
+    <h2>
+      Jinis ta age onno rokom baniyechilam,<br>
       but then I thought I can do better 🌚
-    </p>
-    <button class="btn primary" onclick="go(3)">I Know :3</button>
+    </h2>
+    <button class="btn" onclick="go(3)">Yes, I know I know 😒</button>
   </div>
 
-  <!-- Screen 3 -->
+  <!-- Q3 -->
   <div class="screen" id="s3">
-    <p>
-      Byapar ta holo simple questions rekhe ki hobe,<br>
+    <h1>Byapar ta holo</h1>
+    <h2>
       I am more fun than most of the guys 😌<br><br>
-      No one can beat my……
-    </p>
+      No one can beat my ________
+    </h2>
 
-    <button class="btn secondary" onclick="restart()">Sarcasm</button>
-    <button class="btn secondary" onclick="restart()">Bakchodi</button>
-    <button class="btn primary" onclick="go(4)">Bhalobasha 💖</button>
-    <button class="btn secondary" onclick="restart()">Prem</button>
+    <button class="btn" onclick="restart()">Sarcasm</button>
+    <button class="btn" onclick="restart()">Bakchodi</button>
+    <button class="btn" onclick="go(4)">Bhalobasha</button>
+    <button class="btn" onclick="restart()">Prem</button>
   </div>
 
-  <!-- Final Screen -->
+  <!-- Q4 -->
   <div class="screen" id="s4">
     <h1>Exactly 🥺💖</h1>
-    <p>
+    <h2>
       Bakchodi thakbe,<br>
       sarcasm-o thakbe…<br><br>
       but shob cheye beshi thakbe<br>
       <strong>Bhalobasha.</strong>
-    </p>
-    <button class="btn primary" onclick="finale()">❤️</button>
+    </h2>
+    <button class="btn" onclick="go(5)">❤️</button>
   </div>
 
-  <script>
-    function go(n) {
-      document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
-      document.getElementById("s" + n).classList.add("active");
-    }
-
-    function restart() {
-      // reloads page & sends her back to start
-      location.reload();
-    }
-
-    function finale() {
-      alert("You chose love. Always. 💖");
-    }
-  </script>
-
-</body>
-</html>
+  <!-- FINAL -->
+  <div class="screen" id="s5">
+    <h1>Finale</h1>
+    <h2>
+      Jalabo tokei, Bhalobashbo tokei, Ragao tokei,<br>
+      r ki shob e korbo, but chere janni na bondhu,<br><br>
+      You are my Valentine given my Mother Velankanni<br>
+      so there is no chance of separation,<br><br>
+      Still for the sake of asking, you jigesh koreiii ni r ki…<br><br>
