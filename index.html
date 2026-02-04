@@ -111,7 +111,7 @@
       Listen to me, you're my love 💕<br>
       Jano tumi?
     </h2>
-    <button class="btn" onclick="go(2)">Jani ❤️</button>
+    <button class="btn" data-next="2">Jani ❤️</button>
   </div>
 
   <!-- Q2 -->
@@ -121,7 +121,7 @@
       Jinis ta age onno rokom baniyechilam,<br>
       but then I thought I can do better 🌚
     </h2>
-    <button class="btn" onclick="go(3)">Yes, I know I know 😒</button>
+    <button class="btn" data-next="3">Yes, I know I know 😒</button>
   </div>
 
   <!-- Q3 -->
@@ -132,30 +132,12 @@
       No one can beat my ________
     </h2>
 
-    <button class="btn" onclick="restart()">Sarcasm</button>
-    <button class="btn" onclick="restart()">Bakchodi</button>
-    <button class="btn" onclick="go(4)">Bhalobasha</button>
-    <button class="btn" onclick="restart()">Prem</button>
+    <button class="btn" data-restart="true">Sarcasm</button>
+    <button class="btn" data-restart="true">Bakchodi</button>
+    <button class="btn" data-next="4">Bhalobasha</button>
+    <button class="btn" data-restart="true">Prem</button>
   </div>
 
   <!-- Q4 -->
   <div class="screen" id="s4">
-    <h1>Exactly 🥺💖</h1>
-    <h2>
-      Bakchodi thakbe,<br>
-      sarcasm-o thakbe…<br><br>
-      but shob cheye beshi thakbe<br>
-      <strong>Bhalobasha.</strong>
-    </h2>
-    <button class="btn" onclick="go(5)">❤️</button>
-  </div>
-
-  <!-- FINAL -->
-  <div class="screen" id="s5">
-    <h1>Finale</h1>
-    <h2>
-      Jalabo tokei, Bhalobashbo tokei, Ragao tokei,<br>
-      r ki shob e korbo, but chere janni na bondhu,<br><br>
-      You are my Valentine given my Mother Velankanni<br>
-      so there is no chance of separation,<br><br>
-      Still for the sake of asking, you jigesh koreiii ni r ki…<br><br>
+    <h1>
